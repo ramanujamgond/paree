@@ -1,69 +1,25 @@
 import Image from "next/image";
-
-export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
-}
+import Link from "next/link";
+import { getProductsByCategory } from "@/lib/products";
+import { ART, FILMS, INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/config";
+import { TAGLINE } from "@/content/site";
+import { Arrow, Botanical, ButtonLink, Eyebrow, ProductCard } from "@/components/ui";
+import { Reveal } from "@/components/reveal";
+import { BrandFilm } from "@/components/brand-film";
+import { SeedStory } from "@/components/seed-story";
+import { OrderingBand } from "@/components/footer";
+import { pageMetadata } from "@/lib/metadata";
+export const metadata = pageMetadata("Woodpressed oils, with care", "A question from our own kitchen became Pyaree. Discover unrefined wood-pressed oils with their natural aroma and character.", "/");
+export default function Home() { const oils = getProductsByCategory("wood-pressed-oils"); const stories = oils.flatMap(p => p.story ? [{ ...p, story: p.story }] : []); const social = oils.filter(p => p.image && p.order > 1).slice(0, 4); return <>
+<section className="hero"><div className="container hero-grid"><div className="hero-copy"><Eyebrow>Rooted in nature. Pressed with care.</Eyebrow><h1>Good food.<br/>Good company.<br/><em>Good oil.</em></h1><p>For the everyday meals that mean everything.<br/>Unrefined, wood-pressed oils, with their natural<br className="desktop-break"/> aroma and character intact.</p><div className="hero-actions"><ButtonLink href="/products">Explore the oils</ButtonLink><Link className="hero-story" href="/story">Our story <Arrow diagonal/></Link></div><div className="hero-signature"><span className="signature-rule"/><span>{TAGLINE}</span></div></div><div className="hero-visual"><Image src="/images/1.jpeg" alt="Pyaree Wood-Pressed Black Mustard Oil bottle" width={1152} height={1536} sizes="(max-width: 700px) 100vw, 50vw" preload/><span className="hero-image-caption">THE GOODNESS IS IN THE DETAILS.</span><div className="hero-seal"><span>UNREFINED</span><strong>100%</strong><span>PURE & WOOD-PRESSED</span></div></div></div><div className="hero-bottom container"><span>From Balangir, Odisha. With love.</span><a href="#goodness">A little further down <span aria-hidden="true">↓</span></a></div></section>
+<div className="values-strip"><span>Carefully selected oilseeds</span><span aria-hidden="true">✳</span><span>Traditionally wood-pressed</span><span aria-hidden="true">✳</span><span>Natural aroma & character</span><span aria-hidden="true">✳</span><span>Honestly made</span></div>
+<BrandFilm title="Mustard field in bloom" src={FILMS.fields.src} poster={FILMS.fields.poster}><Eyebrow>Where it begins</Eyebrow><h2>It begins<br/>in the <em>fields.</em></h2><p>Every bottle starts with carefully selected oilseeds, long before it reaches your kitchen.</p><ButtonLink href="/story">Read our story</ButtonLink></BrandFilm>
+<section id="goodness" className="section container goodness"><Reveal><div className="section-heading centered"><Eyebrow>The little things are the big things</Eyebrow><h2>Goodness doesn’t happen by chance.<br/>It begins with <em>care.</em></h2></div></Reveal><div className="goodness-grid"><Reveal className="goodness-photo"><Image src="/images/sample_images.jpeg" alt="Pyaree mustard oil held in front of stocked shelves" width={1200} height={1600} sizes="(max-width: 700px) 90vw, 30vw"/><span>Real oils. A personal standard.</span></Reveal><Reveal className="goodness-cell warm"><span className="line-icon" aria-hidden="true">⌁</span><h3>Closer to nature</h3><p>Carefully selected oilseeds. Their natural character, kept close.</p><Link href="/process" className="text-link">How it begins <Arrow diagonal/></Link></Reveal><Reveal className="goodness-cell pale"><span className="line-icon" aria-hidden="true">✳</span><h3>A slower kind of good</h3><p>Traditionally wood-pressed, unrefined and without intentional heating during pressing.</p><Link href="/process" className="text-link">Our process <Arrow diagonal/></Link></Reveal><Reveal className="goodness-cell sage"><span className="line-icon" aria-hidden="true">♡</span><h3>Our family standard</h3><p>One simple question: would we be happy putting this on our own family’s table?</p><Link href="/story" className="text-link">The story of Pyaree <Arrow diagonal/></Link></Reveal><Reveal className="goodness-cell cream"><span className="line-icon" aria-hidden="true">↗</span><h3>Nothing to overpromise</h3><p>Good aroma. Real flavour. An honest reminder to use oil mindfully.</p><Link href="/philosophy" className="text-link">Our promise <Arrow diagonal/></Link></Reveal></div></section>
+<BrandFilm title="Oil pouring into a kadhai" src={FILMS.pour.src} poster={FILMS.pour.poster}><Eyebrow>Slow, by choice</Eyebrow><h2>Pressed slowly.<br/>Poured <em>gently.</em></h2><p>From carefully selected seeds to the kadhai in your kitchen, nothing is rushed.</p><ButtonLink href="/process">See how it’s made</ButtonLink></BrandFilm>
+<section className="collection section"><div className="container"><Reveal><div className="section-heading heading-row"><div><Eyebrow>A place in every kitchen</Eyebrow><h2>Find your everyday <em>favourite.</em></h2><p>Different seeds. Distinctive character. The same care in every bottle.</p></div><Link className="text-link" href="/products">Meet all the oils <Arrow diagonal/></Link></div></Reveal><Reveal className="seeds-plate"><Image src={ART.seeds.src} alt={ART.seeds.alt} width={ART.seeds.width} height={ART.seeds.height} sizes="(max-width: 1280px) 100vw, 1280px"/></Reveal><div className="product-grid">{oils.map(product => <Reveal key={product.id}><ProductCard product={product}/></Reveal>)}</div><div className="collection-foot"><span>Choose your size. Build your order. Talk to us directly.</span><Link href="/products/castor-oil" className="text-link">Also from Pyaree: Castor Oil <Arrow diagonal/></Link></div></div></section>
+<section className="section container seed-story-section"><Reveal><div className="section-heading heading-row"><div><Eyebrow>Every seed has a character</Eyebrow><h2>Six seeds.<br/>Six ways to <em>cook.</em></h2></div><p>Each oil carries the aroma of the seed it came from. Scroll through and find the one your kitchen already knows.</p></div></Reveal><SeedStory products={stories}/></section>
+<section className="story-section"><div className="story-image"><Image src="/images/sample_images_2.jpeg" alt="A hand holding Pyaree Groundnut Oil in front of rows of bottles" width={1200} height={1600} sizes="(max-width: 700px) 100vw, 50vw"/></div><div className="story-copy"><Reveal><Eyebrow>Before a brand, a question</Eyebrow><h2>It started in<br/>our own <em>kitchen.</em></h2><p>“Can we bring an oil to our kitchen that is closer to its natural form?”</p><p className="small">That question became two years of research, travel and learning. A search for an oil we would be proud to serve to our own family.</p><ButtonLink href="/story">The story behind the bottle</ButtonLink></Reveal><span className="story-number" aria-hidden="true">01 / OUR BEGINNING</span></div></section>
+<section className="section container process-preview"><Reveal><div className="section-heading heading-row"><div><Eyebrow>Simple by intention</Eyebrow><h2>From seed.<br/>To something <em>special.</em></h2></div><p>We keep the process thoughtful,<br/>and the promise simple.</p></div></Reveal><div className="process-layout"><Reveal className="process-art"><Image src={ART.woodPress.src} alt={ART.woodPress.alt} width={ART.woodPress.width} height={ART.woodPress.height} sizes="(max-width: 760px) 80vw, 30vw"/></Reveal><div className="process-grid">{[{ number: "01", title: "Choose with care", text: "It begins with carefully selected oilseeds." }, { number: "02", title: "Press traditionally", text: "Wood-pressed, without intentional heating during pressing." }, { number: "03", title: "Keep its character", text: "Unrefined oils, with their natural aroma and richness." }].map(step => <Reveal key={step.number}><div className="process-step"><span className="step-number">{step.number}</span><h3>{step.title}</h3><p>{step.text}</p></div></Reveal>)}</div></div><Link href="/process" className="text-link">A closer look at the process <Arrow diagonal/></Link></section>
+<section className="promise-section"><Botanical/><Reveal><Eyebrow>A promise we can keep</Eyebrow><h2>Good oil brings flavour.<br/><em>You bring the balance.</em></h2><p>Oil is energy-dense. We believe in using it mindfully and in moderation.<br/>Pyaree is not a medicine. Our promise is much simpler, and much more honest.</p><Link href="/philosophy" className="text-link">Read our philosophy <Arrow diagonal/></Link></Reveal><span className="promise-mark" aria-hidden="true">✳</span></section>
+<section className="section container social-section"><div className="section-heading heading-row"><div><Eyebrow>Everyday moments, shared</Eyebrow><h2>A little more <em>Pyaree.</em></h2></div><a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-link">{INSTAGRAM_HANDLE} <Arrow diagonal/></a></div><div className="social-grid">{social.map(product => <a key={product.id} href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label={`Follow Pyaree on Instagram: ${product.shortName} Oil`}>{product.image && <Image src={product.image.src} alt={product.image.alt} width={product.image.width} height={product.image.height} sizes="(max-width: 700px) 45vw, 25vw"/>}<span aria-hidden="true">↗</span></a>)}</div></section><OrderingBand/>
+</>; }

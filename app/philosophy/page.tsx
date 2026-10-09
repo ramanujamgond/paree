@@ -1,0 +1,12 @@
+import { PageIntro } from "@/components/ui";
+import { OrderingBand } from "@/components/footer";
+import { TAGLINE } from "@/content/site";
+import { pageMetadata } from "@/lib/metadata";
+export const metadata = pageMetadata("Our promise", "Natural aroma and character. Responsible consumption. Read Pyaree's honest philosophy.", "/philosophy");
+const sections = [
+  { title: "Quiet expressions of love", text: ["Some of the deepest expressions of love happen quietly. In the food we cook. In the ingredients we choose. In the way we serve our family. And in the little things we do every day for the people who matter most.", "Pyaree was born from this feeling."] },
+  { title: "More than a plate", text: ["We believe that food is not just about filling a plate. It is about bringing people together, creating memories, and making an ordinary meal feel a little more special.", "That is why we bring you unrefined, unheated, 100% pure wood-pressed oils — oils that retain their natural aroma and character, so that the food you cook can speak for itself."] },
+  { title: "Mindful, in moderation", text: ["Oil is energy-dense. And because we care about the people who bring Pyaree into their homes, we believe in using oil mindfully and in moderation.", "We don’t want you to hand over the responsibility for your health to an oil brand. Your health is yours. Your choices are yours.", "Pyaree is not a medicine, and we don’t want to make promises that an oil cannot keep."] },
+  { title: "An honest promise", text: ["We want to give your food the aroma and taste of a good wood-pressed oil, so you can enjoy that richness with less oil.", "Because when an oil brings enough aroma and flavour to your food, you may not need to pour as much.", "And perhaps, that is a small but meaningful way of caring for the people you love. Not by telling them what will make them healthy. But by giving them something good, and reminding them that how much we use matters too."] },
+];
+export default function Philosophy() { return <><PageIntro label="Our philosophy" title={TAGLINE} text="For the food we make with our hands. For the people we make it for. For the love that goes into every meal."/><div className="reading-page">{sections.map((section, i) => <section className="chapter" key={section.title}><div className="chapter-title"><span>0{i+1}</span><h2>{section.title}</h2></div><div className="chapter-content">{section.text.map(p => <p key={p}>{p}</p>)}</div></section>)}</div><OrderingBand/></>; }

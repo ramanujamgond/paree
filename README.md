@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pyaree Woodpressed Oils
 
-## Getting Started
+A modern, responsive brand website for **Pyaree**, by Barik Agro Industries in Balangir, Odisha.
 
-First, run the development server:
+**Apno ke Liye, Pyar Se**
 
-```bash
+The website combines authentic product photography, an editorial visual style, and direct WhatsApp ordering.
+
+## Features
+
+- Homepage, product collection, seven product detail pages, brand story, philosophy, production process, FAQ and contact.
+- Product sizes and INR prices sourced from client-supplied information.
+- Order drawer with quantity controls, totals, local persistence and cross-tab synchronisation.
+- Formatted WhatsApp order messages and an Instagram fallback.
+- Responsive layouts, keyboard navigation, focus management and reduced-motion support.
+- Page metadata, product structured data, sitemap and robots configuration.
+
+## Technology
+
+Next.js App Router · React · TypeScript · authored CSS · Motion · GSAP · Vitest
+
+## Run locally
+
+```sh
+git clone https://github.com/ramanujamgond/paree.git
+cd paree
+npm ci
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Configuration
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Purpose |
+| --- | --- |
+| `NEXT_PUBLIC_WHATSAPP_NUMBER` | International WhatsApp number, digits only. |
+| `NEXT_PUBLIC_SITE_URL` | Production origin used for canonical URLs, structured data and sitemap. |
 
-## Learn More
+Configure the final site URL before deployment. Keep `.env.local` out of Git.
 
-To learn more about Next.js, take a look at the following resources:
+## Checks and production
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```sh
+npm test
+npm run lint
+npm run build
+npm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project structure
 
-## Deploy on Vercel
+| Directory | Contents |
+| --- | --- |
+| `app/` | Pages, layout, styles and SEO routes. |
+| `components/` | Navigation, product presentation, ordering and motion. |
+| `content/` | Shared copy and FAQ content. |
+| `lib/` | Catalogue, pricing, ordering, configuration and tests. |
+| `public/images/` | Supplied logo, product photographs and supporting artwork. |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[PROJECT.md](PROJECT.md) preserves client information and the complete brand narrative. The product catalogue is maintained in `lib/products.ts`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Content notes
+
+The catalogue includes six edible wood-pressed oils and Castor Oil separately. Castor has no supplied descriptive copy or photograph, so its page shows its name, size and price. Coconut orders are for 250 ml; the supplied photograph shows earlier 200 ml packaging.
+
+The supplied Pyaree logo is used in the header and footer. Ordering opens a prefilled message; delivery details are confirmed directly with the business.
