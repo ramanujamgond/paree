@@ -4,17 +4,18 @@ import { getFullName, type Product } from "@/lib/products";
 
 export const ORDER_SEPARATOR = "\n\n----------------\n\n";
 
-function buildOrderBlock(line: ResolvedOrderLine): string {
-  return `Product:\n${line.name}\n\nSize:\n${line.sizeLabel}\n\nQuantity:\n${line.quantity}\n\nPrice:\n${formatPrice(line.lineTotal)}`;
+function buildOrderBlock(line: ResolvedOrderLine, index: number): string {
+  return `*${index + 1}. ${line.name}*\n*Size:* ${line.sizeLabel}\n*Quantity:* ${line.quantity}\n*Unit price:* ${formatPrice(line.unitPrice)}\n*Subtotal:* ${formatPrice(line.lineTotal)}`;
 }
 
 export function buildOrderMessage(lines: readonly ResolvedOrderLine[]): string {
+  const itemCount = lines.reduce((sum, line) => sum + line.quantity, 0);
   return (
-    "Hello,\n\nI would like to place an order:\n\n" +
+    "Hello,\n\n*PYAREE ORDER*\nI would like to place an order:\n\n*ITEMS*\n\n" +
     lines.map(buildOrderBlock).join(ORDER_SEPARATOR) +
     ORDER_SEPARATOR +
-    `Total:\n${formatPrice(getOrderTotal(lines))}` +
-    "\n\nPlease let me know the next steps for delivery.\n\nThank you."
+    `*ORDER SUMMARY*\n*Total items:* ${itemCount}\n*Total:* ${formatPrice(getOrderTotal(lines))}` +
+    "\n\n*DELIVERY*\nPlease confirm delivery charges and the next steps for delivery.\n\nThank you."
   );
 }
 

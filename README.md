@@ -35,7 +35,7 @@ Open [localhost:3000](http://localhost:3000).
 
 | Variable | Purpose |
 | --- | --- |
-| `NEXT_PUBLIC_WHATSAPP_NUMBER` | International WhatsApp number, digits only. |
+| `NEXT_PUBLIC_WHATSAPP_NUMBER` | International WhatsApp number, digits only. Defaults to the business number `918984868900` when missing or invalid. |
 | `NEXT_PUBLIC_SITE_URL` | Production origin used for canonical URLs, structured data and sitemap. |
 
 Configure the final site URL before deployment. Keep `.env.local` out of Git.

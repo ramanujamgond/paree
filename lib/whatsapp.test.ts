@@ -12,65 +12,57 @@ const products = getAllProducts();
 
 const ONE_LINE_MESSAGE = `Hello,
 
+*PYAREE ORDER*
 I would like to place an order:
 
-Product:
-Pyaree Wood-Pressed Black Mustard Oil
+*ITEMS*
 
-Size:
-1 L
-
-Quantity:
-2
-
-Price:
-₹880
+*1. Pyaree Wood-Pressed Black Mustard Oil*
+*Size:* 1 L
+*Quantity:* 2
+*Unit price:* ₹440
+*Subtotal:* ₹880
 
 ----------------
 
-Total:
-₹880
+*ORDER SUMMARY*
+*Total items:* 2
+*Total:* ₹880
 
-Please let me know the next steps for delivery.
+*DELIVERY*
+Please confirm delivery charges and the next steps for delivery.
 
 Thank you.`;
 
 const TWO_LINE_MESSAGE = `Hello,
 
+*PYAREE ORDER*
 I would like to place an order:
 
-Product:
-Pyaree Wood-Pressed Black Mustard Oil
+*ITEMS*
 
-Size:
-1 L
-
-Quantity:
-2
-
-Price:
-₹880
+*1. Pyaree Wood-Pressed Black Mustard Oil*
+*Size:* 1 L
+*Quantity:* 2
+*Unit price:* ₹440
+*Subtotal:* ₹880
 
 ----------------
 
-Product:
-Pyaree Wood-Pressed Coconut Oil
-
-Size:
-250 ml
-
-Quantity:
-1
-
-Price:
-₹300
+*2. Pyaree Wood-Pressed Coconut Oil*
+*Size:* 250 ml
+*Quantity:* 1
+*Unit price:* ₹300
+*Subtotal:* ₹300
 
 ----------------
 
-Total:
-₹1,180
+*ORDER SUMMARY*
+*Total items:* 3
+*Total:* ₹1,180
 
-Please let me know the next steps for delivery.
+*DELIVERY*
+Please confirm delivery charges and the next steps for delivery.
 
 Thank you.`;
 

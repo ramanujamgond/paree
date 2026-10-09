@@ -7,13 +7,10 @@ export function normaliseWhatsAppNumber(raw: string | undefined): string | null 
   return null;
 }
 
-export const whatsappNumber = normaliseWhatsAppNumber(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER);
-
-if (whatsappNumber === null && process.env.NODE_ENV === "development") {
-  console.warn(
-    "NEXT_PUBLIC_WHATSAPP_NUMBER is missing or invalid; ordering falls back to Instagram",
-  );
-}
+// Keep ordering available when a deployment omits the public environment variable.
+// Business contact supplied in PROJECT.md; valid environment values can override it.
+export const whatsappNumber =
+  normaliseWhatsAppNumber(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER) ?? "918984868900";
 
 function readSiteUrl(raw: string | undefined): string {
   const trimmed = (raw ?? "").trim().replace(/\/+$/, "");
