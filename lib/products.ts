@@ -76,7 +76,7 @@ const products: Product[] = [
         ...GALLERY,
       },
     ],
-    sizes: [size("1l", 440), size("500ml", 290), size("250ml", 170)],
+    sizes: [size("1l", 390), size("500ml", 260), size("250ml", 150)],
   },
   {
     id: "yellow-mustard-oil",
@@ -100,7 +100,7 @@ const products: Product[] = [
     image: studioImage("/images/2.jpeg", "Wood-Pressed Yellow Mustard Oil"),
     story: story("yellow-mustard", "Selected yellow mustard seeds", "Tadka, curries, marinades and pickles", "Illustration of yellow mustard flowers and seeds beside a pickle jar and a bowl of curry"),
     gallery: [],
-    sizes: [size("1l", 480), size("500ml", 300), size("250ml", 190)],
+    sizes: [size("1l", 430), size("500ml", 270), size("250ml", 170)],
   },
   {
     id: "groundnut-oil",
@@ -130,7 +130,7 @@ const products: Product[] = [
         ...GALLERY,
       },
     ],
-    sizes: [size("1l", 525), size("500ml", 330), size("250ml", 190)],
+    sizes: [size("1l", 475), size("500ml", 300), size("250ml", 170)],
   },
   {
     id: "sunflower-oil",
@@ -154,7 +154,7 @@ const products: Product[] = [
     image: studioImage("/images/4.jpeg", "Wood-Pressed Sunflower Oil"),
     story: story("sunflower", "Carefully selected sunflower seeds", "Everyday cooking, sautéing and light frying", "Illustration of a sunflower and its seeds beside a pan of sautéed vegetables"),
     gallery: [],
-    sizes: [size("1l", 500), size("500ml", 330), size("250ml", 190)],
+    sizes: [size("1l", 450), size("500ml", 300), size("250ml", 170)],
   },
   {
     id: "sesame-oil",
@@ -178,7 +178,7 @@ const products: Product[] = [
     image: studioImage("/images/5.jpeg", "Wood-Pressed Sesame Oil"),
     story: story("sesame", "Carefully selected sesame seeds", "Traditional recipes, dressings and finishing", "Illustration of a sesame stalk and seeds beside til laddoos and a bowl of greens"),
     gallery: [],
-    sizes: [size("1l", 800), size("500ml", 470), size("250ml", 250)],
+    sizes: [size("1l", 750), size("500ml", 440), size("250ml", 230)],
   },
   {
     id: "coconut-oil",
@@ -202,7 +202,7 @@ const products: Product[] = [
     image: studioImage("/images/6.jpeg", "Wood-Pressed Coconut Oil"),
     story: story("coconut", "Selected coconuts", "Cooking, baking and everyday household use", "Illustration of whole and halved coconuts beside a bowl of curry and a slice of cake"),
     gallery: [],
-    sizes: [size("250ml", 300)],
+    sizes: [size("250ml", 280)],
   },
   {
     id: "castor-oil",
@@ -219,7 +219,7 @@ const products: Product[] = [
     image: null,
     story: null,
     gallery: [],
-    sizes: [size("100ml", 240)],
+    sizes: [size("100ml", 200)],
   },
 ];
 

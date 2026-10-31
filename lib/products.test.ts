@@ -45,17 +45,17 @@ describe("catalogue", () => {
   });
 
   it("pins a sample of client prices", () => {
-    expect(priceOf("black-mustard-oil", "1l")).toBe(440);
+    expect(priceOf("black-mustard-oil", "1l")).toBe(390);
 
     const coconut = getProductBySlug("coconut-oil");
     expect(coconut?.sizes).toHaveLength(1);
     expect(coconut?.sizes[0].id).toBe("250ml");
-    expect(coconut?.sizes[0].price).toBe(300);
+    expect(coconut?.sizes[0].price).toBe(280);
 
     const castor = getProductBySlug("castor-oil");
     expect(castor?.sizes).toHaveLength(1);
     expect(castor?.sizes[0].id).toBe("100ml");
-    expect(castor?.sizes[0].price).toBe(240);
+    expect(castor?.sizes[0].price).toBe(200);
   });
 
   it("points every image and gallery src at a file under public", () => {

@@ -20,14 +20,14 @@ I would like to place an order:
 *1. Pyaree Wood-Pressed Black Mustard Oil*
 *Size:* 1 L
 *Quantity:* 2
-*Unit price:* ₹440
-*Subtotal:* ₹880
+*Unit price:* ₹390
+*Subtotal:* ₹780
 
 ----------------
 
 *ORDER SUMMARY*
 *Total items:* 2
-*Total:* ₹880
+*Total:* ₹780
 
 *DELIVERY*
 Please confirm delivery charges and the next steps for delivery.
@@ -44,22 +44,22 @@ I would like to place an order:
 *1. Pyaree Wood-Pressed Black Mustard Oil*
 *Size:* 1 L
 *Quantity:* 2
-*Unit price:* ₹440
-*Subtotal:* ₹880
+*Unit price:* ₹390
+*Subtotal:* ₹780
 
 ----------------
 
 *2. Pyaree Wood-Pressed Coconut Oil*
 *Size:* 250 ml
 *Quantity:* 1
-*Unit price:* ₹300
-*Subtotal:* ₹300
+*Unit price:* ₹280
+*Subtotal:* ₹280
 
 ----------------
 
 *ORDER SUMMARY*
 *Total items:* 3
-*Total:* ₹1,180
+*Total:* ₹1,060
 
 *DELIVERY*
 Please confirm delivery charges and the next steps for delivery.
